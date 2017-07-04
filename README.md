@@ -1,2 +1,2 @@
 # article_exploratory_analysis
-exploratory analysis of news articles to determine if they are about protests / riots
+exploratory analysis of news articles to determine if an article is about protests / riots
