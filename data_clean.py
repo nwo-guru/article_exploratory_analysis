@@ -1,29 +1,24 @@
 import os
 import pickle
+from gensim import corpora
 from load_bbc_articles import load_all_bbc_articles
 
 
 def main():
+    # Load texts from bbc articles
     articles = load_all_bbc_articles()
-    article_text = [a[1] for a in articles]
-
+    full_texts = [a[2] for a in articles]
     # Clean stuff like the gensim quickstart tutorial
     with open('stopwords.txt', 'r') as f:
-        stopwords = f.readlines()
+        stopwords = [w.strip() for w in f.readlines()]
+    # Remove stopwords
+    texts = [[w for w in text.lower().split() if w not in stopwords]
+             for text in full_texts]
+    dictionary = corpora.Dictionary(texts)
+    dictionary.save('/tmp/articles.dict')
+    print(dictionary)
 
-    print(stopwords)
 
-
-def load_articles():
-    article_pickle = '.data/articles.p'
-    if not os.path.isfile(article_pickle):
-        with open(article_pickle, 'rb') as f:
-            articles = pickle.load(f)
-    else:
-        articles = load_all_bbc_articles()
-        with open(article_pickle, 'wb') as f:
-            pickle.dump(articles, article_pickle)
-    return articles
 
 if __name__ == '__main__':
     main()

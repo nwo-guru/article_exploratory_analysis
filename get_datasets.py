@@ -5,7 +5,7 @@ import zipfile
 import shutil
 from urllib.request import urlopen
 
-DATA_DIR = '.data'
+DATA_DIR = 'data'
 # UCI News Aggregator Data Set, https://archive.ics.uci.edu/ml/datasets/News+Aggregator
 NEWS_AGG_DATASET = 'https://archive.ics.uci.edu/ml/machine-learning-databases/00359/NewsAggregatorDataset.zip'
 BBC_FULLTEXT = 'http://mlg.ucd.ie/files/datasets/bbc-fulltext.zip'

@@ -1,6 +1,6 @@
 import os
 
-BBC_ARTICLES = '.data/bbc-fulltext/bbc'
+BBC_ARTICLES = 'data/bbc-fulltext/bbc'
 
 def load_articles_in_folder(type, dir_path):
     """ Returns a list of tuples (article type, local path, text)

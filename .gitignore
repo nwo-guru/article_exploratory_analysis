@@ -1,5 +1,6 @@
 # Local data
-.data/
+data/
+tmp/
 
 # PyCharm
 .idea/
