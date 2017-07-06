@@ -5,6 +5,9 @@ from config import articles_dict, articles_mm
 def main():
     # Load texts from bbc articles
     articles = load_all_bbc_articles()
+    for a in articles:
+        if 'protest' in a[2].lower():
+            print(a)
     full_texts = [a[2] for a in articles]
     clean_and_save(full_texts)
 
@@ -25,7 +28,7 @@ def clean_and_save(full_texts):
     stopwords = load_stopwords()
     texts = [clean_text(text, stopwords) for text in full_texts]
     for n, text in enumerate(texts):
-        if 'elton' in text:
+        if 'riot' in text:
             print(n, text)
     # Compute dictionary and corpus and save for reuse
     dictionary = corpora.Dictionary(texts)
