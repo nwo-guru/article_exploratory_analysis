@@ -10,7 +10,7 @@ def main():
     lsi = models.LsiModel(corpus, id2word=dictionary, num_topics=2)
     index = similarities.MatrixSimilarity(lsi[corpus])
 
-    q1 = make_query_vec(dictionary, lsi, 'china')
+    q1 = make_query_vec(dictionary, lsi, 'elton john')
     sims = index[q1]
     sims = sorted(enumerate(sims), key=lambda item: -item[1])
     articles = load_all_bbc_articles()
