@@ -1,6 +1,5 @@
 import os
-
-BBC_ARTICLES = 'data/bbc-fulltext/bbc'
+from config import bbc_articles
 
 def load_articles_in_folder(type, dir_path):
     """ Returns a list of tuples (article type, local path, text)
@@ -15,7 +14,7 @@ def load_articles_in_folder(type, dir_path):
 
 def load_all_bbc_articles():
     articles = []
-    for p in os.listdir(BBC_ARTICLES):
+    for p in os.listdir(bbc_articles):
         if not p.endswith('.TXT'):
-            articles += load_articles_in_folder(p, os.path.join(BBC_ARTICLES, p))
+            articles += load_articles_in_folder(p, os.path.join(bbc_articles, p))
     return articles
