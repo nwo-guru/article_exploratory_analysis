@@ -10,15 +10,12 @@ def main():
     lsi = models.LsiModel(corpus, id2word=dictionary, num_topics=2)
     index = similarities.MatrixSimilarity(lsi[corpus])
 
-    q1 = make_query_vec(dictionary, lsi, 'protests riots')
+    q1 = make_query_vec(dictionary, lsi, 'ebbers')
     sims = index[q1]
     sims = sorted(enumerate(sims), key=lambda item: -item[1])
     articles = load_all_bbc_articles()
-    print(sims[0][0])
     for n in range(100):
-        print(articles[sims[n][0]])
-    print(sims)
-    print()
+        print(sims[n + 1][0], articles[sims[n + 1][0]])
 
 def make_query_vec(dictionary, lsi, query_text):
     vec_bow = dictionary.doc2bow(query_text.lower().split())
