@@ -5,9 +5,6 @@ from config import articles_dict, articles_mm
 def main():
     # Load texts from bbc articles
     articles = load_all_bbc_articles()
-    for a in articles:
-        if 'protest' in a[2].lower():
-            print(a)
     full_texts = [a[2] for a in articles]
     clean_and_save(full_texts)
 
